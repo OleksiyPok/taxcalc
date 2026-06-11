@@ -265,6 +265,11 @@ label,
   border: none;
   cursor: pointer;
 }
+.btn-reset {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+}
 .btn-step + .btn-step {
   border-top: 1px solid var(--border);
 }

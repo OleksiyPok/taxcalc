@@ -23,6 +23,7 @@ const blurIds = [
 ];
 const modal = document.getElementById("settingsModal");
 const settingsBtn = document.getElementById("settingsBtn");
+let modalHistoryState = false;
 const DRIVE_MIN_STEP = 15;
 const WAIT_MIN_STEP = 5;
 
@@ -204,14 +205,24 @@ function openModal() {
   document.body.classList.add("modal-open");
   settingsBtn.setAttribute("aria-expanded", "true");
   document.getElementById("modalClose").focus();
+
+  if (!modalHistoryState) {
+    history.pushState({ modal: true }, "");
+    modalHistoryState = true;
+  }
 }
 
-function closeModal() {
+function closeModal(fromHistory = false) {
   modal.classList.remove("open");
   modal.setAttribute("aria-hidden", "true");
   document.body.classList.remove("modal-open");
   settingsBtn.setAttribute("aria-expanded", "false");
   settingsBtn.focus();
+
+  if (!fromHistory && modalHistoryState) {
+    modalHistoryState = false;
+    history.back();
+  }
 }
 
 settingsBtn.addEventListener("click", openModal);
@@ -223,6 +234,13 @@ modal.addEventListener("click", function (e) {
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+});
+
+window.addEventListener("popstate", function () {
+  if (modal.classList.contains("open")) {
+    modalHistoryState = false;
+    closeModal(true);
+  }
 });
 
 function handleStepClick(e) {
