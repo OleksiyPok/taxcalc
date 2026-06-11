@@ -200,6 +200,12 @@ document.addEventListener("keydown", function (e) {
 function handleStepClick(e) {
   const btn = e.target.closest(".btn-step");
   if (!btn) return;
+  const resetField = btn.dataset.reset;
+  if (resetField) {
+    document.getElementById(resetField).value = 0;
+    calc();
+    return;
+  }
   const dir = parseInt(btn.dataset.dir, 10);
   const step = btn.dataset.step;
 

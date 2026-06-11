@@ -187,6 +187,10 @@ label,
 .input-group .stepper-col {
   border-left: 1px solid var(--border);
 }
+.input-group .stepper-col:first-child {
+  border-right: 1px solid var(--border);
+  border-left: none;
+}
 .time-readout {
   display: flex;
   align-items: center;
