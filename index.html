@@ -35,56 +35,56 @@
 
         <div class="layout">
           <section class="form" aria-label="Trip details">
-            <div class="field">
-              <label for="km">Distance (km)</label>
+            <div class="field-row">
+              <div class="field">
+                <label for="km">Distance (km)</label>
 
-              <div class="input-group" role="group" aria-labelledby="kmLabel">
-                <div class="stepper-col input-stepper">
-                  <button
-                    type="button"
-                    class="btn-step btn-reset"
-                    data-reset="km"
-                    aria-label="Reset distance"
-                  >
-                    ×
-                  </button>
-                </div>
-                <div class="time-readout">
-                  <input
-                    type="number"
-                    class="time-input number-input"
-                    id="km"
-                    min="0"
-                    step="any"
-                    value="100"
-                    inputmode="decimal"
-                  />
-                </div>
+                <div class="input-group" role="group" aria-labelledby="kmLabel">
+                  <div class="stepper-col input-stepper">
+                    <button
+                      type="button"
+                      class="btn-step btn-reset"
+                      data-reset="km"
+                      aria-label="Reset distance"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div class="time-readout">
+                    <input
+                      type="number"
+                      class="time-input number-input"
+                      id="km"
+                      min="0"
+                      step="any"
+                      value="100"
+                      inputmode="decimal"
+                    />
+                  </div>
 
-                <div class="stepper-col input-stepper">
-                  <button
-                    type="button"
-                    class="btn-step"
-                    data-step="km"
-                    data-dir="1"
-                    aria-label="Increase distance"
-                  >
-                    ▲
-                  </button>
-                  <button
-                    type="button"
-                    class="btn-step"
-                    data-step="km"
-                    data-dir="-1"
-                    aria-label="Decrease distance"
-                  >
-                    ▼
-                  </button>
+                  <div class="stepper-col input-stepper">
+                    <button
+                      type="button"
+                      class="btn-step"
+                      data-step="km"
+                      data-dir="1"
+                      aria-label="Increase distance"
+                    >
+                      ▲
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-step"
+                      data-step="km"
+                      data-dir="-1"
+                      aria-label="Decrease distance"
+                    >
+                      ▼
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="field-row">
               <div class="field">
                 <span class="label" id="driveTimeLabel">Driving time</span>
                 <div
@@ -160,6 +160,61 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="parking">Parking (€)</label>
+
+                <div
+                  class="input-group"
+                  role="group"
+                  aria-labelledby="parkingLabel"
+                >
+                  <div class="stepper-col input-stepper">
+                    <button
+                      type="button"
+                      class="btn-step btn-reset"
+                      data-reset="parking"
+                      aria-label="Reset parking"
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <div class="time-readout">
+                    <input
+                      type="number"
+                      class="time-input number-input"
+                      id="parking"
+                      min="0"
+                      step="0.5"
+                      value="0"
+                      inputmode="decimal"
+                    />
+                  </div>
+                  <div class="stepper-col input-stepper">
+                    <button
+                      type="button"
+                      class="btn-step"
+                      data-step="parking"
+                      data-dir="1"
+                      aria-label="Increase parking"
+                    >
+                      ▲
+                    </button>
+                    <button
+                      type="button"
+                      class="btn-step"
+                      data-step="parking"
+                      data-dir="-1"
+                      aria-label="Decrease parking"
+                    >
+                      ▼
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div class="field">
                 <span class="label" id="waitTimeLabel">Waiting time</span>
                 <div
@@ -233,59 +288,6 @@
                       ▼
                     </button>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="parking">Parking (€)</label>
-
-              <div
-                class="input-group"
-                role="group"
-                aria-labelledby="parkingLabel"
-              >
-                <div class="stepper-col input-stepper">
-                  <button
-                    type="button"
-                    class="btn-step btn-reset"
-                    data-reset="parking"
-                    aria-label="Reset parking"
-                  >
-                    ×
-                  </button>
-                </div>
-                <div class="time-readout">
-                  <input
-                    type="number"
-                    class="time-input number-input"
-                    id="parking"
-                    min="0"
-                    step="0.5"
-                    value="0"
-                    inputmode="decimal"
-                  />
-                </div>
-
-                <div class="stepper-col input-stepper">
-                  <button
-                    type="button"
-                    class="btn-step"
-                    data-step="parking"
-                    data-dir="1"
-                    aria-label="Increase parking"
-                  >
-                    ▲
-                  </button>
-                  <button
-                    type="button"
-                    class="btn-step"
-                    data-step="parking"
-                    data-dir="-1"
-                    aria-label="Decrease parking"
-                  >
-                    ▼
-                  </button>
                 </div>
               </div>
             </div>
