@@ -379,6 +379,20 @@ label,
 .modal-body label {
   margin: 0;
 }
+.modal-body .input-group {
+  height: var(--control-h);
+}
+.modal-body .time-readout {
+  flex: 1;
+}
+.modal-body .time-input {
+  width: 100%;
+  height: 100%;
+  padding: 0 14px;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: left;
+}
 @media (min-width: 600px) {
   :root {
     --space: 24px;

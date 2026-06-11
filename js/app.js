@@ -95,8 +95,36 @@ function stepNumber(id, dir) {
   const current = parseFloat(input.value) || 0;
   const step = parseFloat(input.step) || 1;
 
-  input.value = Math.max(0, current + dir * step);
+  const decimals = step.toString().includes(".")
+    ? step.toString().split(".")[1].length
+    : 0;
+
+  const next = Math.max(
+    0,
+    Math.round((current + dir * step) * 10 ** decimals) / 10 ** decimals
+  );
+
+  input.value = next.toFixed(decimals);
+
   calc();
+}
+
+function normalizeNumber(id) {
+  const input = document.getElementById(id);
+
+  const value = parseFloat(input.value);
+  const step = parseFloat(input.step) || 1;
+
+  if (!Number.isFinite(value)) {
+    input.value = 0;
+    return;
+  }
+
+  const decimals = step.toString().includes(".")
+    ? step.toString().split(".")[1].length
+    : 0;
+
+  input.value = Number(value).toFixed(decimals);
 }
 
 function calc() {
@@ -216,6 +244,9 @@ function handleStepClick(e) {
   else if (step === "waitM") stepTimeM("waitH", "waitM", dir, WAIT_MIN_STEP);
   else if (step === "km") stepNumber("km", dir);
   else if (step === "parking") stepNumber("parking", dir);
+  else if (step === "lper100") stepNumber("lper100", dir);
+  else if (step === "fuelPrice") stepNumber("fuelPrice", dir);
+  else if (step === "amort") stepNumber("amort", dir);
 }
 
 document.addEventListener("click", handleStepClick);
@@ -241,6 +272,16 @@ blurIds.forEach(function (id) {
       applyTimeFromParts("driveH", "driveM", DRIVE_MIN_STEP);
     if (id === "waitH" || id === "waitM")
       applyTimeFromParts("waitH", "waitM", WAIT_MIN_STEP);
+    if (
+      id === "km" ||
+      id === "parking" ||
+      id === "lper100" ||
+      id === "fuelPrice" ||
+      id === "amort"
+    ) {
+      normalizeNumber(id);
+    }
+
     calc();
   });
 });
