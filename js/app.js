@@ -194,7 +194,9 @@ function loadSaved() {
         id === "waitM"
       )
         return;
-      if (data[id] !== undefined) document.getElementById(id).value = data[id];
+      if (data[id] !== undefined && data[id] !== "") {
+        document.getElementById(id).value = data[id];
+      }
     });
   } catch (e) {}
 }
